@@ -26,9 +26,19 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsi-bO-RoJ">
+                                <rect key="frame" x="87" y="368.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BNS-aD-Mld"/>
+                                    <constraint firstAttribute="width" constant="200" id="HOu-HD-dhL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Zsi-bO-RoJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="75D-ar-7P0"/>
+                            <constraint firstItem="Zsi-bO-RoJ" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="20" id="kmb-IZ-HOz"/>
                             <constraint firstItem="3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lXx-AP-oOU"/>
                             <constraint firstItem="3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uWf-b3-tgV"/>
                         </constraints>
