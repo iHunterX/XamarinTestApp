@@ -1,12 +1,13 @@
 ﻿using System;
-
+using System.Diagnostics.CodeAnalysis;
 using UIKit;
 
-namespace XamarinTestApp
+namespace XamarinTestApp.ViewControllers
 {
-    public partial class ViewController : UIViewController
+    [SuppressMessage("ReSharper", "RedundantOverridenMember")]
+    public partial class MenuViewController : BaseViewController
     {
-        public ViewController(IntPtr handle) : base(handle)
+        public MenuViewController(IntPtr handle) : base(handle)
         {
         }
 

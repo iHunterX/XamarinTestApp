@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using XamarinTestApp.ViewControllers;
 
 namespace XamarinTestApp
 {
@@ -16,11 +17,22 @@ namespace XamarinTestApp
             get;
             set;
         }
+        public RootViewController RootViewController => Window.RootViewController as RootViewController;
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+            UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+            UINavigationBar.Appearance.BarTintColor = UIColor.LightGray;
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+
+            var firstAttributes = new UIStringAttributes
+            {
+                ForegroundColor = UIColor.White,
+                //Font = UIFont.FromName("Courier", 18f)
+            };
+            UINavigationBar.Appearance.TitleTextAttributes = firstAttributes;
 
             return true;
         }

@@ -91,10 +91,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewControllers\AgentdasViewController.cs" />
+    <Compile Include="ViewControllers\AgentdasViewController.designer.cs">
+      <DependentUpon>AgentdasViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\CustomNavigationController.cs" />
+    <Compile Include="ViewControllers\CustomNavigationController.designer.cs">
+      <DependentUpon>CustomNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\DraftsViewController.cs" />
+    <Compile Include="ViewControllers\DraftsViewController.designer.cs">
+      <DependentUpon>DraftsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\RootViewController.cs" />
+    <Compile Include="ViewControllers\RootViewController.designer.cs">
+      <DependentUpon>RootViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MainViewController.cs" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
   </ItemGroup>
@@ -102,6 +122,9 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="Xamarin-Sidebar-Unified">
+      <HintPath>..\Components\SidebarNavigation-1.9\lib\ios-unified\Xamarin-Sidebar-Unified.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
