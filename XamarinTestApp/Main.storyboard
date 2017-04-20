@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="163">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="676"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="164">
@@ -108,13 +108,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QF6-yP-iSO">
+                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPk-Se-ToY">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vPk-Se-ToY" firstAttribute="leading" secondItem="QF6-yP-iSO" secondAttribute="leading" constant="8" id="5af-8K-Ubw"/>
+                                    <constraint firstAttribute="height" constant="40" id="K8K-Yc-nrW"/>
+                                    <constraint firstAttribute="trailing" secondItem="vPk-Se-ToY" secondAttribute="trailing" constant="8" id="snA-3f-1I9"/>
+                                    <constraint firstItem="vPk-Se-ToY" firstAttribute="top" secondItem="QF6-yP-iSO" secondAttribute="top" id="t0g-qu-5cR"/>
+                                    <constraint firstAttribute="bottom" secondItem="vPk-Se-ToY" secondAttribute="bottom" id="wrW-AU-FUW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="163" secondAttribute="trailing" id="69R-tS-dBc"/>
                             <constraint firstItem="163" firstAttribute="leading" secondItem="160" secondAttribute="leading" id="CCJ-ac-uqU"/>
+                            <constraint firstAttribute="trailing" secondItem="QF6-yP-iSO" secondAttribute="trailing" id="HQp-Ge-FVb"/>
+                            <constraint firstItem="QF6-yP-iSO" firstAttribute="leading" secondItem="160" secondAttribute="leading" id="Xdh-lq-Zcw"/>
+                            <constraint firstItem="163" firstAttribute="top" secondItem="QF6-yP-iSO" secondAttribute="bottom" id="h8Y-fB-8Dd"/>
                             <constraint firstItem="157" firstAttribute="top" secondItem="163" secondAttribute="bottom" id="pRZ-yw-7tq"/>
-                            <constraint firstItem="163" firstAttribute="top" secondItem="160" secondAttribute="top" id="rc2-iP-aai"/>
+                            <constraint firstItem="QF6-yP-iSO" firstAttribute="top" secondItem="156" secondAttribute="bottom" id="smr-j4-Zrt"/>
                         </constraints>
                     </view>
                     <connections>
