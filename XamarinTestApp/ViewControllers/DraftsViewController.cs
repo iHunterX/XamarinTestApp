@@ -6,8 +6,9 @@ namespace XamarinTestApp.ViewControllers
 {
     public partial class DraftsViewController : UIViewController
     {
-        public DraftsViewController() : base("DraftsViewController", null)
-        {
+        public DraftsViewController(IntPtr handle) : base (handle)
+		{
+
         }
 
         public override void DidReceiveMemoryWarning()

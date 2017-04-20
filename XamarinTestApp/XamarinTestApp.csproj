@@ -88,12 +88,20 @@
     <Compile Include="AppDelegate.cs" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
+    <Compile Include="MenuCell.cs" />
+    <Compile Include="MenuCell.designer.cs">
+      <DependentUpon>MenuCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewControllers\AgentdasViewController.cs" />
     <Compile Include="ViewControllers\AgentdasViewController.designer.cs">
       <DependentUpon>AgentdasViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\BaseViewController.cs" />
+    <Compile Include="ViewControllers\BaseViewController.designer.cs">
+      <DependentUpon>BaseViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\CustomNavigationController.cs" />
     <Compile Include="ViewControllers\CustomNavigationController.designer.cs">
@@ -125,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Resources\threelines.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

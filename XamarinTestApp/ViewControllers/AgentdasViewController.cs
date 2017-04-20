@@ -1,15 +1,17 @@
 ﻿using System;
-
+using XamarinTestApp.ViewControllers;
 using UIKit;
 
 namespace XamarinTestApp.ViewControllers
 {
-    public partial class AgentdasViewController : UIViewController
+    public partial class AgentdasViewController : BaseViewController
     {
-        public AgentdasViewController() : base("AgentdasViewController", null)
-        {
+        //public AgentdasViewController() : base("AgentdasViewController", null)
+        //{
+        //}
+        public AgentdasViewController(IntPtr handle) : base (handle)
+		{
         }
-
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
@@ -22,6 +24,12 @@ namespace XamarinTestApp.ViewControllers
             base.ViewDidLoad();
 
             // Perform any additional setup after loading the view, typically from a nib.
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            this.View.BackgroundColor = UIColor.Cyan;
         }
     }
 }

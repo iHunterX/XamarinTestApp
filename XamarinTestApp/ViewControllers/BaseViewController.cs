@@ -6,13 +6,13 @@ namespace XamarinTestApp.ViewControllers
 {
     public partial class BaseViewController : UIViewController
     {
-        protected SidebarNavigation.SidebarController SidebarController => (UIApplication.SharedApplication.Delegate as AppDelegate).RootViewController.SidebarController;
+        protected SidebarNavigation.SidebarController SidebarController => (UIApplication.SharedApplication.Delegate as AppDelegate)?.RootViewController.SidebarController;
 
         // provide access to the navigation controller to all inheriting controllers
-        protected CustomNavigationController NavController => (UIApplication.SharedApplication.Delegate as AppDelegate).RootViewController.NavController;
+        protected CustomNavigationController NavController => (UIApplication.SharedApplication.Delegate as AppDelegate)?.RootViewController.NavController;
 
         // provide access to the storyboard to all inheriting controllers
-        public override UIStoryboard Storyboard => (UIApplication.SharedApplication.Delegate as AppDelegate).RootViewController.Storyboard;
+        public override UIStoryboard Storyboard => (UIApplication.SharedApplication.Delegate as AppDelegate)?.RootViewController.Storyboard;
 
         public BaseViewController(IntPtr handle) : base (handle)
 		{
@@ -23,7 +23,7 @@ namespace XamarinTestApp.ViewControllers
         {
             base.ViewDidLoad();
 
-            NavigationItem.SetRightBarButtonItem(
+            NavigationItem.SetLeftBarButtonItem(
                 new UIBarButtonItem(UIImage.FromBundle("threelines")
                     , UIBarButtonItemStyle.Plain
                     , (sender, args) => {

@@ -33,6 +33,13 @@ namespace XamarinTestApp
                 //Font = UIFont.FromName("Courier", 18f)
             };
             UINavigationBar.Appearance.TitleTextAttributes = firstAttributes;
+            // create a new window instance based on the screen size
+            Window = new UIWindow(UIScreen.MainScreen.Bounds){
+                RootViewController = new RootViewController()
+            };
+
+            // If you have defined a root view controller, set it here:
+            Window.MakeKeyAndVisible();
 
             return true;
         }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Foundation;
+using SidebarNavigation;
 using UIKit;
 
 namespace XamarinTestApp.ViewControllers
@@ -7,20 +9,21 @@ namespace XamarinTestApp.ViewControllers
     [SuppressMessage("ReSharper", "RedundantOverridenMember")]
     public partial class RootViewController : UIViewController
     {
-        private UIStoryboard _storyboard;
+        private static UIStoryboard _storyboard;
 
 
         // the sidebar controller for the app
-        public SidebarNavigation.SidebarController SidebarController { get; private set; }
+        public SidebarController SidebarController { get; private set; }
 
         // the navigation controller
         public CustomNavigationController NavController { get; private set; }
 
         // the storyboard
-        public override UIStoryboard Storyboard => _storyboard ?? (_storyboard = UIStoryboard.FromName("Main", null));
+        public override UIStoryboard Storyboard { get; } = _storyboard ?? (_storyboard = UIStoryboard.FromName("Main", null));
 
-        public RootViewController() : base(null, bundle: null)
+        public RootViewController() : base(null, null)
         {
+
         }
 
         public override void DidReceiveMemoryWarning()
@@ -36,16 +39,17 @@ namespace XamarinTestApp.ViewControllers
 
             // Perform any additional setup after loading the view, typically from a nib.
 
-            var agentdasVC = (AgentdasViewController)Storyboard.InstantiateViewController("AgentdasViewController");
-            var draftsVC = (DraftsViewController)Storyboard.InstantiateViewController("DraftsViewController");
+            var agentdasVc = (AgentdasViewController)Storyboard.InstantiateViewController("AgentdasViewController");
+            var menuVc = (MenuViewController)Storyboard.InstantiateViewController("MenuViewController");
             //var draftsVC = (DraftsViewController)Storyboard.InstantiateViewController("DraftsViewController");
 
             // create a slideout navigation controller with the top navigation controller and the menu view controller
             NavController = new CustomNavigationController();
-            //NavController.PushViewController(introController, false);
-            SidebarController = new SidebarNavigation.SidebarController(this, NavController, agentdasVC) { 
+            NavController.PushViewController(agentdasVc, false);
+            SidebarController = new SidebarController(rootViewController: this, contentAreaController: NavController, navigationAreaController: menuVc) { 
                 MenuWidth = 220,
-                ReopenOnRotate = false
+                ReopenOnRotate = false,
+                MenuLocation = SidebarController.MenuLocations.Left
             };
 
 

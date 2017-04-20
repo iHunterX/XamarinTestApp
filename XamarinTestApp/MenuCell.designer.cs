@@ -7,30 +7,31 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace XamarinTestApp.ViewControllers
+namespace XamarinTestApp
 {
-    [Register ("MenuViewController")]
-    partial class MenuViewController
+    [Register ("MenuCell")]
+    partial class MenuCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView menuList { get; set; }
+        UIKit.UIImageView titleImage { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel sideBarTitle { get; set; }
+        UIKit.UILabel titleLable { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (menuList != null) {
-                menuList.Dispose ();
-                menuList = null;
+            if (titleImage != null) {
+                titleImage.Dispose ();
+                titleImage = null;
             }
 
-            if (sideBarTitle != null) {
-                sideBarTitle.Dispose ();
-                sideBarTitle = null;
+            if (titleLable != null) {
+                titleLable.Dispose ();
+                titleLable = null;
             }
         }
     }
