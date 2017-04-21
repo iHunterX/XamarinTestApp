@@ -1,23 +1,29 @@
 {
-  "images" : [
+  "images": [
     {
-      "idiom" : "universal",
-      "filename" : "Agendas.png",
-      "scale" : "1x"
+      "scale": "1x",
+      "idiom": "iphone",
+      "filename": "Agendas.png"
     },
     {
-      "idiom" : "universal",
-      "filename" : "Agendas@2x.png",
-      "scale" : "2x"
+      "scale": "2x",
+      "idiom": "iphone",
+      "filename": "Agendas@2x.png"
     },
     {
-      "idiom" : "universal",
-      "filename" : "Agendas@3x.png",
-      "scale" : "3x"
+      "scale": "3x",
+      "idiom": "iphone",
+      "filename": "Agendas@3x.png"
+    },
+    {
+      "idiom": "iphone"
     }
   ],
-  "info" : {
-    "version" : 1,
-    "author" : "xcode"
+  "properties": {
+    "template-rendering-intent": ""
+  },
+  "info": {
+    "version": 1,
+    "author": ""
   }
 }

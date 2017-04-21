@@ -49,8 +49,27 @@ namespace XamarinTestApp.ViewControllers
 
                 //---- if there are no cells to reuse, create a new one
                 var cell = (MenuCell)tableView.DequeueReusableCell(CellIdentifier);
-                cell.SetUpCell(null,item);
+                string strImg;
+                switch (indexPath.Row)
+                {
+                    case 0:
+                        strImg = "Agendas";
+                        break;
+                    case 1:
+                        strImg = "";
+                        break;
+                    default:
+                        strImg = null;
+                        break;
+                } 
+                
+                cell.SetUpCell(strImg, item);
                 return cell;
+            }
+
+            public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+            {
+                return (nfloat) 50.0;
             }
 
             public override nint RowsInSection(UITableView tableview, nint section)
@@ -72,7 +91,6 @@ namespace XamarinTestApp.ViewControllers
                 tableView.DeselectRow(indexPath, true);
 
                 _menuView.NavController.PushViewController(vc, false);
-                //_menuView.SidebarController.ChangeContentView(vc);
 
                 _menuView.SidebarController.CloseMenu();
             }

@@ -10,9 +10,9 @@ namespace XamarinTestApp.Cells
         {
         }
 
-        public void SetUpCell([Optional]UIImage img, string label)
+        public void SetUpCell([Optional]string strImg, string label)
         {
-            if (titleImage != null) titleImage.Image = img;
+            if (titleImage != null) titleImage.Image = UIImage.FromBundle(strImg); ;
             if (titleLable != null) titleLable.Text  = label;
         }
     }
