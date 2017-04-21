@@ -164,5 +164,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="AppIcons.xcassets\Contents.json" />
+    <ImageAsset Include="AppIcons.xcassets\Image-1.imageset\Contents.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
