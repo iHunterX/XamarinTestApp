@@ -23,6 +23,7 @@ namespace XamarinTestApp.ViewControllers
 
         public RootViewController() : base(null, null)
         {
+            
 
         }
 
@@ -41,18 +42,19 @@ namespace XamarinTestApp.ViewControllers
 
             var agentdasVc = (AgentdasViewController)Storyboard.InstantiateViewController("AgentdasViewController");
             var menuVc = (MenuViewController)Storyboard.InstantiateViewController("MenuViewController");
-            //var draftsVC = (DraftsViewController)Storyboard.InstantiateViewController("DraftsViewController");
+            //var draftsVc = (DraftsViewController)Storyboard.InstantiateViewController("DraftsViewController");
 
             // create a slideout navigation controller with the top navigation controller and the menu view controller
             NavController = new CustomNavigationController();
+
             NavController.PushViewController(agentdasVc, false);
-            SidebarController = new SidebarController(rootViewController: this, contentAreaController: NavController, navigationAreaController: menuVc) { 
+
+            SidebarController = new SidebarController(rootViewController: this, contentAreaController: NavController,navigationAreaController: menuVc)
+            {
                 MenuWidth = 220,
                 ReopenOnRotate = false,
                 MenuLocation = SidebarController.MenuLocations.Left
             };
-
-
         }
     }
 }

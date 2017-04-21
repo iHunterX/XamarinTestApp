@@ -8,10 +8,10 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace XamarinTestApp.ViewControllers
+namespace XamarinTestApp.Cells
 {
-    [Register ("DraftsViewController")]
-    sealed partial class DraftsViewController
+    [Register ("TableViewCell1")]
+    partial class AgentdasCell
     {
         void ReleaseDesignerOutlets ()
         {

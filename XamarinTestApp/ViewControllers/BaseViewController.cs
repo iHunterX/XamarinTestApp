@@ -16,19 +16,29 @@ namespace XamarinTestApp.ViewControllers
 
         public BaseViewController(IntPtr handle) : base (handle)
 		{
+
         }
 
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            NavigationItem.Title = Title;
             NavigationItem.SetLeftBarButtonItem(
                 new UIBarButtonItem(UIImage.FromBundle("threelines")
                     , UIBarButtonItemStyle.Plain
                     , (sender, args) => {
                         SidebarController.ToggleMenu();
                     }), true);
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            Console.WriteLine("NavigationItem.Title ->>" + NavigationItem.Title);
+            Console.WriteLine("NavigationItem ->>" + NavController.NavigationItem.Title);
+            Console.WriteLine("This.Title->> " + Title);
+            
         }
     }
 }

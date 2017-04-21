@@ -1,14 +1,14 @@
 ﻿using System;
-using XamarinTestApp.ViewControllers;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using UIKit;
+using XamarinTestApp.Models;
 
 namespace XamarinTestApp.ViewControllers
 {
     public partial class AgentdasViewController : BaseViewController
     {
-        //public AgentdasViewController() : base("AgentdasViewController", null)
-        //{
-        //}
         public AgentdasViewController(IntPtr handle) : base (handle)
 		{
         }
@@ -24,12 +24,19 @@ namespace XamarinTestApp.ViewControllers
             base.ViewDidLoad();
 
             // Perform any additional setup after loading the view, typically from a nib.
+            NavigationItem.SetRightBarButtonItem(
+                new UIBarButtonItem(UIImage.FromBundle("threelines")
+                    , UIBarButtonItemStyle.Plain
+                    , (sender, args) => {
+                        SidebarController.ToggleMenu();
+                    }), true);
         }
 
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            this.View.BackgroundColor = UIColor.Cyan;
+            var agd = JsonConvert.DeserializeObject<List<AgendaEntity>>(Resources.Resources.AgendaList);
+            Console.WriteLine(agd[0].Agenda);
         }
     }
 }

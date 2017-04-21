@@ -13,8 +13,16 @@ namespace XamarinTestApp.ViewControllers
     [Register ("AgentdasViewController")]
     partial class AgentdasViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView tableView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (tableView != null) {
+                tableView.Dispose ();
+                tableView = null;
+            }
         }
     }
 }

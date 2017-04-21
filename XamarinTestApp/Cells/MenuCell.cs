@@ -1,9 +1,8 @@
-﻿using Foundation;
 using System;
 using System.Runtime.InteropServices;
 using UIKit;
 
-namespace XamarinTestApp
+namespace XamarinTestApp.Cells
 {
     public partial class MenuCell : UITableViewCell
     {

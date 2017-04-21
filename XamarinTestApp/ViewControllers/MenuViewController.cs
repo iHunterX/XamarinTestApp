@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Foundation;
 using UIKit;
+using XamarinTestApp.Cells;
 
 namespace XamarinTestApp.ViewControllers
 {
@@ -31,9 +32,10 @@ namespace XamarinTestApp.ViewControllers
 
         class MyListSource : UITableViewSource
         {
-            MenuViewController _menuView;
-            UIViewController[] _listVc;
-            readonly string CellIdentifier = "menuCellIdentifier";
+            readonly MenuViewController _menuView;
+            readonly UIViewController[] _listVc;
+            private const string CellIdentifier = "menuCellIdentifier";
+
             public MyListSource(UIViewController[] listControllers, MenuViewController menu)
             {
                 _listVc = listControllers;
@@ -46,7 +48,7 @@ namespace XamarinTestApp.ViewControllers
                 var item = _listVc[indexPath.Row].Title;
 
                 //---- if there are no cells to reuse, create a new one
-                MenuCell cell = (MenuCell)tableView.DequeueReusableCell(CellIdentifier);
+                var cell = (MenuCell)tableView.DequeueReusableCell(CellIdentifier);
                 cell.SetUpCell(null,item);
                 return cell;
             }
@@ -58,19 +60,22 @@ namespace XamarinTestApp.ViewControllers
 
             public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
             {
-                var vc = _listVc[indexPath.Row];
+                
+                var vc = _listVc[indexPath.Row] as BaseViewController;
                 if (Equals(vc, _menuView.NavController.TopViewController))
                 {
                     _menuView.SidebarController.CloseMenu();
+                    return;
                 }
+                _menuView.NavController.ViewControllers = null;
 
                 tableView.DeselectRow(indexPath, true);
 
-                _menuView.SidebarController.ChangeContentView(vc);
+                _menuView.NavController.PushViewController(vc, false);
+                //_menuView.SidebarController.ChangeContentView(vc);
 
                 _menuView.SidebarController.CloseMenu();
             }
         }
-        
     }
 }

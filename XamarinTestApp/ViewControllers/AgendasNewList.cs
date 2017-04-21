@@ -4,9 +4,9 @@ using UIKit;
 
 namespace XamarinTestApp.ViewControllers
 {
-    public partial class DraftsViewController : BaseViewController
+    public partial class AgendasNewList : AgentdasViewController
     {
-        public DraftsViewController(IntPtr handle) : base (handle)
+        public AgendasNewList(IntPtr handle) : base (handle)
         {
         }
 
