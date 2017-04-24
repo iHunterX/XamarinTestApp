@@ -13,7 +13,11 @@ namespace XamarinTestApp.ViewControllers
     public partial class AgentdasViewController : BaseViewController
     {
         private IEnumerable<IGrouping<string, AgendaEntity>> AgdList { get; set; }
-        protected static List<string> query;
+
+
+        protected static List<string> Query { get; private set; }
+
+
 
         public AgentdasViewController(IntPtr handle) : base (handle)
 		{
@@ -38,10 +42,9 @@ namespace XamarinTestApp.ViewControllers
                     }), true);
 
             AgdList = DeserializeObject<List<AgendaEntity>>(Resources.Resources.AgendaList).ToList().GroupBy(x => x.Agenda);
-            query = new List<string>();
-            AgdList.ToList().ForEach(x => query.Add(x.Key));
-
-            tableView.Source = new AgendaTableSource(query, this);
+            Query = new List<string>();
+            AgdList.ToList().ForEach(x => Query.Add(x.Key));
+            tableView.Source = new AgendaTableSource(Query, this);
 
         }
 
@@ -54,28 +57,26 @@ namespace XamarinTestApp.ViewControllers
 
         class AgendaTableSource : UITableViewSource
         {
-            private readonly List<string> datalist;
-            private UIViewController parentView;
+            private readonly List<string> _datalist;
+            private UIViewController _parentView;
             string CellIdentifier = "AgentdasCellIdentifier";
             public AgendaTableSource(List<string> list, AgentdasViewController vc)
             {
-                datalist = list;
-                parentView = vc;
+                _datalist = list;
+                _parentView = vc;
             }
 
             public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
             {
-                UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier);
-                if (cell == null)
-                { cell = new UITableViewCell(UITableViewCellStyle.Default, CellIdentifier); }
-                string item = datalist[indexPath.Row];
+                UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier) ?? new UITableViewCell(UITableViewCellStyle.Default, CellIdentifier);
+                string item = _datalist[indexPath.Row];
                 cell.TextLabel.Text = item;
                 return cell;
             }
 
             public override nint RowsInSection(UITableView tableview, nint section)
             {
-                return datalist.Count();
+                return _datalist.Count();
             }
         }
     }
